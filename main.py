@@ -4,7 +4,7 @@ import os
 import pyowm
 from dotenv import load_dotenv
 from telegram import Bot, Update
-from telegram.ext import CommandHandler, CallbackContext
+from telegram.ext import CommandHandler, CallbackContext, Updater
 
 
 load_dotenv()
@@ -41,7 +41,15 @@ def weather(update: Update, context: CallbackContext) -> None:
     tg_bot.send_message(chat_id=update.effective_chat.id, text=message)
 
 
-weather_handler = CommandHandler('weather', weather)
-dispatcher = tg_bot.dispatcher
-dispatcher.add_handler(weather_handler)
-tg_bot.polling()
+def main() -> None:
+    updater = Updater(os.environ['TELEGRAM_BOT_TOKEN'])
+    dispatcher = updater.dispatcher
+
+    weather_handler = CommandHandler('weather', weather)
+    dispatcher.add_handler(weather_handler)
+
+    tg_bot.polling()
+
+
+if __name__ == "__main__":
+    main()
