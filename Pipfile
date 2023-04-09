@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pyowm = "*"
+python-telegram-bot = "*"
+python-dotenv = "*"
+
+[dev-packages]
+flake8 = "*"
+pydocstyle = "*"
+
+[requires]
+python_version = "3.10"
