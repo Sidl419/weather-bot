@@ -10,8 +10,6 @@ jobs:
       - uses: actions/setup-python@v3
       - name: Install dependencies
         run: |
-          pip install pipenv --user
-          pipenv install -d
           pip install myst-parser
           pip install sphinx sphinx_rtd_theme
       - name: Sphinx build

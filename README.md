@@ -2,7 +2,7 @@
 
 ## Перед коммитом
 
-```
+``` bash
 pipenv shell
 pydocstyle
 flake8
@@ -10,7 +10,7 @@ flake8
 
 ## Запуск бота
 
-```
+``` bash
 pipenv run python main.py 
 ```
 
@@ -49,3 +49,7 @@ Python обёртка над `OpenWeatherMap` API, `PyOWM`.
 7. `/getdefault`: получить текущее местоположение по умолчанию;
 
 8. ...
+
+## Автоматическая документация
+
+Автоматическая документация проекта доступна по [ссылке](https://sidl419.github.io/weather-bot/).
