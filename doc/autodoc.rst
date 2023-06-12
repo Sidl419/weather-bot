@@ -1,14 +1,29 @@
 Техническая документация
 ========================
 
-.. automodule:: src
+README
+======
+
+.. include:: ../README.md
+   :parser: myst_parser.sphinx_
+
+Модуль main
+===========
+
+.. automodule:: main
    :members:
    :undoc-members:
 
+Модуль commands
+===============
 
-Индексы и таблицы
-=================
+.. automodule:: commands
+   :members:
+   :undoc-members:
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+Модуль utils
+============
+
+.. automodule:: utils
+   :members:
+   :undoc-members:
