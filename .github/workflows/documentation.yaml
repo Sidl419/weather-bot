@@ -12,6 +12,7 @@ jobs:
         run: |
           pip install pipenv --user
           pipenv install --dev
+          pip install sphinx sphinx_rtd_theme
       - name: Sphinx build
         run: |
           sphinx-build doc _build
