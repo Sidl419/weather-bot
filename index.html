@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Документация weather-bot &mdash; документация weather-bot 0.0.1</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Техническая документация" href="autodoc.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            weather-bot
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">Содержание:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="autodoc.html">Техническая документация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autodoc.html#readme">README</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autodoc.html#main">Модуль main</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autodoc.html#commands">Модуль commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autodoc.html#utils">Модуль utils</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">weather-bot</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Документация weather-bot</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="weather-bot">
+<h1>Документация weather-bot<a class="headerlink" href="#weather-bot" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Содержание:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="autodoc.html">Техническая документация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autodoc.html#readme">README</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autodoc.html#weather-bot">weather-bot</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="autodoc.html#main">Модуль main</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autodoc.html#commands">Модуль commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autodoc.html#utils">Модуль utils</a></li>
+</ul>
+</div>
+<section id="weather-bot">
+<h2>weather-bot<a class="headerlink" href="#weather-bot" title="Permalink to this heading"></a></h2>
+<section id="id1">
+<h3>Перед коммитом<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pipenv<span class="w"> </span>shell
+pydocstyle
+flake8
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h3>Запуск бота<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pipenv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>main.py
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h3>Постановка решаемой задачи<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
+<p>Разработать Telegram бота, который позволяет пользователям получать информацию о погоде для любого города или
+местоположения.
+Бот получает текущие данные о погоде для указанного места, используя, например, <code class="docutils literal notranslate"><span class="pre">OpenWeatherMap</span></code>, а в ответ
+отправляет сообщение с текущими погодными условиями, включая температуру, влажность, скорость ветра и описание погоды.</p>
+</section>
+<section id="id4">
+<h3>Описание предполагаемых инструментов решения<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
+<p>Основными инструментами являются Python библиотека <code class="docutils literal notranslate"><span class="pre">python-telegram-bot</span></code> для создания Telegram бота, а также
+Python обёртка над <code class="docutils literal notranslate"><span class="pre">OpenWeatherMap</span></code> API, <code class="docutils literal notranslate"><span class="pre">PyOWM</span></code>.</p>
+</section>
+<section id="id5">
+<h3>Макет интерфейса<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h3>
+<p>Бот имеет текстовый интерфейс и взаимодействует с пользователем через Telegram.
+Пользователь отправляет запрос на получение информации о погоде в виде сообщения боту,
+который обрабатывает его и отправляет ответное сообщение с информацией о погоде.</p>
+<p>Примеры команд для бота:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/start</span></code>: начало работы с ботом;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/help</span></code>: отображение списка доступных команд и их описание;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/weather</span> <span class="pre">&lt;город/метка&gt;</span></code>: текущая погода для указанного города или метки;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/forecast</span> <span class="pre">&lt;город/метка&gt;</span></code>: прогноз погоды на неделю вперёд для указанного города или метки;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/setdefault</span> <span class="pre">&lt;город/метка&gt;</span></code>: установить местоположение по умолчанию, чтобы получать для него автоматический прогноз;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/unsetdefault</span></code>: сбросить местоположение по умолчанию;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/getdefault</span></code>: получить текущее местоположение по умолчанию;</p></li>
+<li><p>…</p></li>
+</ol>
+</section>
+<section id="id6">
+<h3>Автоматическая документация<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h3>
+<p>Автоматическая документация проекта доступна по <a class="reference external" href="https://sidl419.github.io/weather-bot/">ссылке</a>.</p>
+</section>
+</section>
+</section>
+<section id="id1">
+<h1>Индексы и таблицы<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Алфавитный указатель</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Состав модуля</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Поиск</span></a></p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="autodoc.html" class="btn btn-neutral float-right" title="Техническая документация" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Leonid Sidorov.</p>
+  </div>
+
+  Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
