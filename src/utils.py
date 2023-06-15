@@ -2,6 +2,9 @@
 
 from typing import Dict, Optional
 from pyowm.weatherapi25 import observation
+import gettext
+translation = gettext.translation("weth", 'po', fallback=True)
+_ = translation.gettext
 
 
 def get_weather_status(observation: observation.Observation) -> Dict:
@@ -24,10 +27,10 @@ def format_wether_message(weather_attrs: Dict, location: Optional[str] = None) -
         location = 'location'
 
     message = f"""
-    The weather in {location} is <b>{weather_attrs['status']}</b>
+    {_("The weather in")} {location} {_("is")} <b>{weather_attrs['status']}</b>
 
-    The temperature is <b>{weather_attrs['temp']:.1f}°C</b>, feels like <b>{weather_attrs['temp_feels']:.1f}°C</b>
+    {_("The temperature is ")}<b>{weather_attrs['temp']:.1f}°C</b>, {_("feels like")} <b>{weather_attrs['temp_feels']:.1f}°C</b>
 
-    Sun sets at <b>{weather_attrs['sunset']}</b> and rises at <b>{weather_attrs['sunrise']}</b>
+    {_("Sun sets at")} <b>{weather_attrs['sunset']}</b> {_("and rises at")} <b>{weather_attrs['sunrise']}</b>
     """
     return message
