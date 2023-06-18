@@ -57,3 +57,15 @@ def test_get_weather():
     weather_attrs = W(temp, "sun", "10:36AM", "10:36PM")
     obs = A(weather_attrs)
     assert type(get_weather_status(obs)) == dict
+
+
+def test_dict_labels():
+    temp = {'temp': "32", 'temp_feels': "35"}
+    weather_attrs = W(temp, "sun", "10:36AM", "10:36PM")
+    obs = A(weather_attrs)
+    res = get_weather_status(obs)
+    assert 'temp' in res
+    assert 'temp_feels' in res
+    assert 'status' in res
+    assert 'sunrise' in res
+    assert 'sunset' in res
