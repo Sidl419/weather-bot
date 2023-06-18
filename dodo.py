@@ -1,13 +1,16 @@
 #!usr/bin/env python3
 """Project tasks."""
 
-DOIT_CONFIG = {'default_tasks': ['html']}
+import glob
 
+
+DOIT_CONFIG = {'default_tasks': ['html']}
 
 def task_html():
     """Build documentation-html for project."""
     return {
-        'actions': ['sphinx-build -M html ./doc/ ./doc/_build']
+        'actions': ['sphinx-build -M html ./doc/ ./doc/_build'],
+        'file_dep' : glob.glob("*.py") + glob.glob("*.rst"),
     }
 
 def task_gitclean():
