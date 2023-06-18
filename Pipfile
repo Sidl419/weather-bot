@@ -14,9 +14,10 @@ pydocstyle = "*"
 sphinx = "*"
 myst-parser = "*"
 sphinx-rtd-theme = "*"
-gettext = "*"
 doit = "*"
 tomli = "*"
+pybabel = "*"
+build = "*"
 
 [requires]
 python_version = "3.10"
