@@ -5,3 +5,6 @@ _build
 *.mo
 .DS_Store
 .doit.db.db
+build
+dist
+src/weather_bot.egg-info
