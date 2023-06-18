@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-06-18 12:42+0300\n"
+"POT-Creation-Date: 2023-06-18 13:08+0300\n"
 "PO-Revision-Date: 2023-06-15 20:35+0300\n"
 "Last-Translator: Kirill Berber <berberkirill@mail.ru>\n"
 "Language: ru\n"
@@ -69,19 +69,22 @@ msgstr "-"
 msgid "The temperature is "
 msgstr "Температура -"
 
-#: src/utils.py:31 src/utils.py:33
-msgid "degrees"
-msgstr "градусов"
+#: src/utils.py:32 src/utils.py:35
+msgid "degree"
+msgid_plural "degrees"
+msgstr[0] "градус"
+msgstr[1] "градуса"
+msgstr[2] "градусов"
 
-#: src/utils.py:32
+#: src/utils.py:33
 msgid "feels like"
 msgstr "ощущается как"
 
-#: src/utils.py:34
+#: src/utils.py:36
 msgid "Sun sets at"
 msgstr "Закат в"
 
-#: src/utils.py:35
+#: src/utils.py:37
 msgid "and rises at"
 msgstr "и рассвет в"
 

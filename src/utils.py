@@ -4,7 +4,7 @@ from typing import Dict, Optional
 from pyowm.weatherapi25 import observation
 import gettext
 translation = gettext.translation("weth", 'po', fallback=True)
-_ = translation.gettext
+_, ngettext = translation.gettext, translation.ngettext
 
 
 def get_weather_status(observation: observation.Observation) -> Dict:
@@ -28,9 +28,11 @@ def format_wether_message(weather_attrs: Dict, location: Optional[str] = None) -
     message = _("The weather in") + " " + str(location) + " " + _("is") + " " + \
               weather_attrs['status'].decode('ascii') + \
               '\n' + _("The temperature is ") + " " + \
-              "{:.1f}".format(weather_attrs['temp'].decode('ascii')) + _("degrees") + \
+              str(int((weather_attrs['temp'].decode('ascii')))) + \
+              ngettext("degree", "degrees", abs(int(weather_attrs['temp'].decode('ascii')))) + \
               '\n' + _("feels like") + " " + \
-              "{:.1f}".format(weather_attrs['temp_feels'].decode('ascii')) + _("degrees") + \
+              str(int(weather_attrs['temp_feels'].decode('ascii'))) + \
+              ngettext("degree", "degrees", abs(int(weather_attrs['temp_feels'].decode('ascii')))) + \
               '\n' + _("Sun sets at") + " " + weather_attrs['sunset'].decode('ascii') + " " +\
               _("and rises at") + weather_attrs['sunrise'].decode('ascii')
     return message
