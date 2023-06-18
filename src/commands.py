@@ -19,8 +19,8 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 try:
     owm = OWM(os.environ['OWM_API_KEY'])
-except:
-    logging.info("You have no valid OWM key")
+except KeyError as e:
+    logging.info(f"You have no environment variable {e}")
 weather_mgr = owm.weather_manager()
 
 WEATHER = 0
