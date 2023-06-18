@@ -15,3 +15,28 @@ def task_gitclean():
     return {
             'actions': ['git clean -xdf'],
     }
+
+def task_test():
+    """Test application."""
+    yield {
+            'actions': ['pytest'], 'name': "any_tests",
+            'verbosity': 2
+    }
+    # yield {
+    #         'actions': ['pytest ...'], 'name': "specific_test_N",
+    #         'verbosity': 2
+    # }
+    
+def task_docstyle():
+    """Check docstrings in src code files."""
+    return {
+            'actions': ['pydocstyle ./src'],
+            'verbosity': 2
+    }
+
+def task_check():
+    """Perform all checks."""
+    return {
+            'actions': [],
+            'task_dep': ['docstyle', 'test']
+    }
