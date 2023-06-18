@@ -1,0 +1,30 @@
+name: Check
+
+on: 
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
+      - name: Install dependencies
+        run: |
+          pip install pipenv
+      - name: Install python environment
+        run: |
+          pipenv install --dev
+      - name: Check
+        run: |
+          pipenv run doit check
+      - name: Build wheel
+        run: |
+          pipenv run doit wheel
