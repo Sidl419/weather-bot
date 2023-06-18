@@ -1,7 +1,7 @@
 [project]
 name = "weather-bot"
 version = "1.0"
-readme = "doc/autodoc.rst"
+readme = "doc/index.rst"
 requires-python = ">=3.10"
 
 
