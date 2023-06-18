@@ -25,12 +25,12 @@ def format_wether_message(weather_attrs: Dict, location: Optional[str] = None) -
     """Get weather message from info dictionary."""
     if location is None:
         location = 'location'
-
-    message = f"""
-    {_("The weather in")} {location} {_("is")} <b>{weather_attrs['status']}</b>
-
-    {_("The temperature is ")}<b>{weather_attrs['temp']:.1f}°C</b>, {_("feels like")} <b>{weather_attrs['temp_feels']:.1f}°C</b>
-
-    {_("Sun sets at")} <b>{weather_attrs['sunset']}</b> {_("and rises at")} <b>{weather_attrs['sunrise']}</b>
-    """
+    message = _("The weather in") + " " + str(location) + " " + _("is") + " " + \
+              weather_attrs['status'].decode('ascii') + \
+              '\n' + _("The temperature is ") + " " + \
+              "{:.1f}".format(weather_attrs['temp'].decode('ascii')) + _("degrees") + \
+              '\n' + _("feels like") + " " + \
+              "{:.1f}".format(weather_attrs['temp_feels'].decode('ascii')) + _("degrees") + \
+              '\n' + _("Sun sets at") + " " + weather_attrs['sunset'].decode('ascii') + " " +\
+              _("and rises at") + weather_attrs['sunrise'].decode('ascii')
     return message

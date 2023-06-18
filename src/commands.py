@@ -25,11 +25,8 @@ WEATHER = 0
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     """Start the conversation and ask the user about their gender."""
-    await update.message.reply_text(
-        _("Hi! My name is Weather Bot. I will tell you the weather at your city. "
-          "Send /cancel to stop talking to me.\n\n"
-          "What is your location? Send me city name or geo location.")
-    )
+    await update.message.reply_text(_("Hi! My name is Weather Bot. I will tell you the weather at your city. \n \
+    Send /cancel to stop talking to me. \n What is your location? Send me city name or geo location."))
 
     return WEATHER
 
@@ -66,7 +63,7 @@ async def weather(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
             message = format_wether_message(weather_attrs, location)
 
         except pyowm.commons.exceptions.NotFoundError:
-            message = f"{_('Sorry, I could not find any weather information for')} <b>{location}</b>"
+            message = _('Sorry, I could not find any weather information for') + f" <b>{location}</b>"
 
     await update.message.reply_text(message, parse_mode=telegram.constants.ParseMode.HTML)
 

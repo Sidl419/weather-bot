@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-06-15 20:29+0300\n"
+"POT-Creation-Date: 2023-06-18 12:42+0300\n"
 "PO-Revision-Date: 2023-06-15 20:35+0300\n"
 "Last-Translator: Kirill Berber <berberkirill@mail.ru>\n"
 "Language: ru\n"
@@ -19,27 +19,33 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.12.1\n"
 
-#: src/commands.py:29
-msgid
-"Hi! My name is Weather Bot. I will tell you the weather at your city. \n \
-Send /cancel to stop talking to me.\n What is your location? Send me city name or geo location."
-msgstr "Привет! Я Бот Погоды. Я буду рассказывать тебе о погоде в твоем городе. \n \
-Нажми /закончить, чтобы прекратить общение. Где ты находишься? Отправь название города или геолокацию."
+#: src/commands.py:28
+msgid ""
+"Hi! My name is Weather Bot. I will tell you the weather at your city. \n"
+"     Send /cancel to stop talking to me. \n"
+" What is your location? Send me city name or geo location."
+msgstr ""
+"Привет! Я Бот Погоды. Я буду рассказывать тебе о погоде в твоем городе. \n"
+"    Нажми /закончить, чтобы прекратить общение. \n"
+" Где ты находишься? Отправь название города или геолокацию."
 
-
-#: src/commands.py:55 src/commands.py:61
+#: src/commands.py:52 src/commands.py:58
 msgid "Location of"
 msgstr "Местоположение"
 
-#: src/commands.py:79
+#: src/commands.py:66
+msgid "Sorry, I could not find any weather information for"
+msgstr ""
+
+#: src/commands.py:76
 msgid "User"
 msgstr "Пользователь"
 
-#: src/commands.py:79
+#: src/commands.py:76
 msgid "canceled the conversation"
 msgstr "закончить диалог"
 
-#: src/commands.py:81
+#: src/commands.py:78
 msgid "Bye! I hope we can talk again some day."
 msgstr "Пока! Я надеюсь мы сможем пообщаться в другой день"
 
@@ -50,4 +56,32 @@ msgstr "начало"
 #: src/main.py:41
 msgid "cancel"
 msgstr "закончить"
+
+#: src/utils.py:28
+msgid "The weather in"
+msgstr "Погода в"
+
+#: src/utils.py:28
+msgid "is"
+msgstr "-"
+
+#: src/utils.py:30
+msgid "The temperature is "
+msgstr "Температура -"
+
+#: src/utils.py:31 src/utils.py:33
+msgid "degrees"
+msgstr "градусов"
+
+#: src/utils.py:32
+msgid "feels like"
+msgstr "ощущается как"
+
+#: src/utils.py:34
+msgid "Sun sets at"
+msgstr "Закат в"
+
+#: src/utils.py:35
+msgid "and rises at"
+msgstr "и рассвет в"
 
