@@ -36,12 +36,19 @@ def task_docstyle():
             'actions': ['pydocstyle ./src'],
             'verbosity': 2
     }
+    
+def task_codestyle():
+    """Check code in src directory."""
+    return {
+            'actions': ['flake8 ./src'],
+            'verbosity': 2
+    }
 
 def task_check():
     """Perform all checks."""
     return {
             'actions': [],
-            'task_dep': ['docstyle', 'test']
+            'task_dep': ['codestyle', 'docstyle', 'test']
     }
 
 def task_wheel():
