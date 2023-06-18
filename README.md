@@ -11,7 +11,7 @@ flake8
 ## Запуск бота
 
 ``` bash
-pipenv run python main.py 
+pipenv run python src/main.py 
 ```
 
 ## Постановка решаемой задачи
@@ -52,4 +52,4 @@ Python обёртка над `OpenWeatherMap` API, `PyOWM`.
 
 ## Автоматическая документация
 
-Автоматическая документация проекта доступна по [ссылке](https://sidl419.github.io/weather-bot/index.html).
+Автоматическая документация проекта доступна по [ссылке](https://sidl419.github.io/weather-bot).
