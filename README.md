@@ -52,4 +52,4 @@ Python обёртка над `OpenWeatherMap` API, `PyOWM`.
 
 ## Автоматическая документация
 
-Автоматическая документация проекта доступна по [ссылке](https://sidl419.github.io/weather-bot/).
+Автоматическая документация проекта доступна по [ссылке](https://sidl419.github.io/weather-bot/index.html).
