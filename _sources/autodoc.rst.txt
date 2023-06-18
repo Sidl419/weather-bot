@@ -7,13 +7,6 @@ README
 .. include:: ../README.md
    :parser: myst_parser.sphinx_
 
-Модуль main
-===========
-
-.. automodule:: main
-   :members:
-   :undoc-members:
-
 Модуль commands
 ===============
 
