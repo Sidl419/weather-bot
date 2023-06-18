@@ -25,14 +25,15 @@ def format_wether_message(weather_attrs: Dict, location: Optional[str] = None) -
     """Get weather message from info dictionary."""
     if location is None:
         location = 'location'
+
     message = _("The weather in") + " " + str(location) + " " + _("is") + " " + \
-              weather_attrs['status'].decode('ascii') + \
+              f"<b>{weather_attrs['status']}</b>" + \
               '\n' + _("The temperature is ") + " " + \
-              str(int((weather_attrs['temp'].decode('ascii')))) + \
-              ngettext("degree", "degrees", abs(int(weather_attrs['temp'].decode('ascii')))) + \
+              f"<b>{int(weather_attrs['temp'])}</b>" + \
+              ngettext("degree", "degrees", abs(int(weather_attrs['temp']))) + \
               '\n' + _("feels like") + " " + \
-              str(int(weather_attrs['temp_feels'].decode('ascii'))) + \
-              ngettext("degree", "degrees", abs(int(weather_attrs['temp_feels'].decode('ascii')))) + \
-              '\n' + _("Sun sets at") + " " + weather_attrs['sunset'].decode('ascii') + " " +\
-              _("and rises at") + weather_attrs['sunrise'].decode('ascii')
+              f"<b>{int(weather_attrs['temp_feels'])}</b>" + \
+              ngettext("degree", "degrees", abs(int(weather_attrs['temp_feels']))) + \
+              '\n' + _("Sun sets at") + " " + f"<b>{weather_attrs['sunset']}</b>" + " " +\
+              _("and rises at") + f"<b>{weather_attrs['sunrise']}</b>"
     return message
