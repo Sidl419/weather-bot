@@ -4,7 +4,7 @@
 import glob
 
 
-DOIT_CONFIG = {'default_tasks': ['html']}
+DOIT_CONFIG = {'default_tasks': ['wheel']}
 
 def task_html():
     """Build documentation-html for project."""
@@ -42,4 +42,11 @@ def task_check():
     return {
             'actions': [],
             'task_dep': ['docstyle', 'test']
+    }
+
+def task_wheel():
+    """Build wheel."""
+    return {
+            'actions': ['python -m build -w'],
+            'task_dep': ['gitclean'],
     }
