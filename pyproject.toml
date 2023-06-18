@@ -1,0 +1,10 @@
+[project]
+name = "weather-bot"
+version = "1.0"
+readme = "doc/autodoc.rst"
+requires-python = ">=3.10"
+
+
+[build-system]
+requires = ["Sphinx", "setuptools", "build", "doit", "pydocstyle"]
+build-backend = "setuptools.build_meta"
