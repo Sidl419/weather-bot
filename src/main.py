@@ -24,6 +24,7 @@ from telegram.ext import (
 
 from commands import weather, cancel, start
 from commands import WEATHER
+from utils import _
 
 
 def main() -> None:
@@ -33,11 +34,11 @@ def main() -> None:
 
     # Add conversation handler with the states GENDER, PHOTO, LOCATION and BIO
     conv_handler = ConversationHandler(
-        entry_points=[CommandHandler("start", start)],
+        entry_points=[CommandHandler(_("start"), start)],
         states={
             WEATHER: [MessageHandler((filters.TEXT & ~filters.COMMAND) | filters.LOCATION, weather)],
         },
-        fallbacks=[CommandHandler("cancel", cancel)],
+        fallbacks=[CommandHandler(_("cancel"), cancel)],
     )
 
     application.add_handler(conv_handler)
