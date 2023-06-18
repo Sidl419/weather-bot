@@ -1,8 +1,11 @@
-from src.utils import format_wether_message, get_weather_status
-from pyowm.owm import OWM
-from pyowm.utils.config import get_default_config
 import os
 import datetime
+import sys
+
+testdir = os.path.dirname(__file__)
+srcdir = '../src'
+sys.path.insert(0, os.path.abspath(os.path.join(testdir, srcdir)))
+from utils import format_wether_message, get_weather_status
 
 
 def make_weather_attrs():

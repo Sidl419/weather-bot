@@ -22,7 +22,7 @@ def task_gitclean():
 def task_test():
     """Test application."""
     yield {
-            'actions': ['pytest'], 'name': "any_tests",
+            'actions': ['pytest test/tests.py'], 'name': "any_tests",
             'verbosity': 2
     }
     # yield {
