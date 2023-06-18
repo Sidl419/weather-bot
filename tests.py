@@ -53,13 +53,6 @@ class W:
 
 
 def test_get_weather():
-    """
-    config_dict = get_default_config()
-    config_dict['language'] = 'fr'  # your language here, eg. French
-    owm = OWM(os.environ['OWM_API_KEY'], config_dict)
-    mgr = owm.weather_manager()
-    observation = mgr.weather_at_place('Paris, FR')
-    """
     temp = {'temp': "32", 'temp_feels' : "35"}
     weather_attrs = W(temp, "sun", "10:36AM", "10:36PM")
     obs = A(weather_attrs)
