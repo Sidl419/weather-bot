@@ -25,6 +25,7 @@ def format_wether_message(weather_attrs: Dict, location: Optional[str] = None) -
     """Get weather message from info dictionary."""
     if location is None:
         location = 'location'
+
     message = _("The weather in") + " " + str(location) + " " + _("is") + " " + \
               weather_attrs['status'] + \
               '\n' + _("The temperature is ") + \

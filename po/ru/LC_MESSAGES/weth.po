@@ -57,34 +57,34 @@ msgstr "начало"
 msgid "cancel"
 msgstr "закончить"
 
-#: src/utils.py:28
+#: src/utils.py:29
 msgid "The weather in"
 msgstr "Погода в"
 
-#: src/utils.py:28
+#: src/utils.py:29
 msgid "is"
 msgstr "-"
 
-#: src/utils.py:30
+#: src/utils.py:31
 msgid "The temperature is "
 msgstr "Температура -"
 
-#: src/utils.py:32 src/utils.py:35
+#: src/utils.py:33 src/utils.py:36
 msgid "degree"
 msgid_plural "degrees"
 msgstr[0] "градус"
 msgstr[1] "градуса"
 msgstr[2] "градусов"
 
-#: src/utils.py:33
+#: src/utils.py:34
 msgid "feels like"
 msgstr "ощущается как"
 
-#: src/utils.py:36
+#: src/utils.py:37
 msgid "Sun sets at"
 msgstr "Закат в"
 
-#: src/utils.py:37
+#: src/utils.py:38
 msgid "and rises at"
 msgstr "и рассвет в"
 
