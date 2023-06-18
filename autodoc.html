@@ -59,7 +59,11 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#main">Модуль main</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#commands">Модуль commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#utils">Модуль utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#module-utils">Модуль utils</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#utils.format_wether_message"><code class="docutils literal notranslate"><span class="pre">format_wether_message()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#utils.get_weather_status"><code class="docutils literal notranslate"><span class="pre">get_weather_status()</span></code></a></li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -148,8 +152,21 @@ Python обёртка над <code class="docutils literal notranslate"><span cl
 <section id="commands">
 <h1>Модуль commands<a class="headerlink" href="#commands" title="Permalink to this heading"></a></h1>
 </section>
-<section id="utils">
-<h1>Модуль utils<a class="headerlink" href="#utils" title="Permalink to this heading"></a></h1>
+<section id="module-utils">
+<span id="utils"></span><h1>Модуль utils<a class="headerlink" href="#module-utils" title="Permalink to this heading"></a></h1>
+<p>Utility functions for weather forecast.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.format_wether_message">
+<span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">format_wether_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">weather_attrs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#utils.format_wether_message" title="Ссылка на это определение"></a></dt>
+<dd><p>Get weather message from info dictionary.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.get_weather_status">
+<span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">get_weather_status</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">observation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Observation</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span></span></span><a class="headerlink" href="#utils.get_weather_status" title="Ссылка на это определение"></a></dt>
+<dd><p>Get weather info from OWM observation object.</p>
+</dd></dl>
+
 </section>
 
 
