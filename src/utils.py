@@ -3,6 +3,7 @@
 from typing import Dict, Optional
 from pyowm.weatherapi25 import observation
 import gettext
+import requests
 translation = gettext.translation("weth", 'po', fallback=True)
 _, ngettext = translation.gettext, translation.ngettext
 
@@ -21,6 +22,11 @@ def get_weather_status(observation: observation.Observation) -> Dict:
     return res
 
 
+def get_fact(degree):
+    response = requests.get(f"http://numbersapi.com/{degree}/trivia")
+    return response.text
+
+
 def format_wether_message(weather_attrs: Dict, location: Optional[str] = None) -> str:
     """Get weather message from info dictionary."""
     if location is None:
@@ -36,4 +42,7 @@ def format_wether_message(weather_attrs: Dict, location: Optional[str] = None) -
         ngettext("degree", "degrees", abs(int(weather_attrs['temp_feels']))) + \
         '\n' + _("Sun sets at") + " " + weather_attrs['sunset'] + " " +\
         _("and rises at") + " " + weather_attrs['sunrise']
+    message += '\n'
+    message += _('Fact about number') + " " + str(int((weather_attrs['temp']))) + '\n'
+    message += get_fact(int((weather_attrs['temp'])))
     return message
