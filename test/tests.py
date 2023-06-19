@@ -5,7 +5,7 @@ import sys
 testdir = os.path.dirname(__file__)
 srcdir = '../src'
 sys.path.insert(0, os.path.abspath(os.path.join(testdir, srcdir)))
-from utils import format_wether_message, get_weather_status
+from utils import format_wether_message, get_weather_status, get_fact
 
 
 def make_weather_attrs():
@@ -72,3 +72,7 @@ def test_dict_labels():
     assert 'status' in res
     assert 'sunrise' in res
     assert 'sunset' in res
+
+
+def test_integration_fact_number():
+    assert get_fact(1).status_code == 200

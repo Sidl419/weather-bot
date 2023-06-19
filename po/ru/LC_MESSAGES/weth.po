@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-06-19 23:57+0300\n"
+"POT-Creation-Date: 2023-06-20 00:30+0300\n"
 "PO-Revision-Date: 2023-06-15 20:35+0300\n"
 "Last-Translator: Kirill Berber <berberkirill@mail.ru>\n"
 "Language: ru\n"
@@ -49,36 +49,40 @@ msgstr "закончил диалог"
 msgid "Bye! I hope we can talk again some day."
 msgstr "Пока! Я надеюсь мы сможем пообщаться в другой день"
 
-#: src/utils.py:29
+#: src/utils.py:35
 msgid "The weather in"
 msgstr "Погода в"
 
-#: src/utils.py:29
+#: src/utils.py:35
 msgid "is"
 msgstr "-"
 
-#: src/utils.py:31
+#: src/utils.py:37
 msgid "The temperature is "
 msgstr "Температура -"
 
-#: src/utils.py:33 src/utils.py:36
+#: src/utils.py:39 src/utils.py:42
 msgid "degree"
 msgid_plural "degrees"
 msgstr[0] "градус"
 msgstr[1] "градуса"
 msgstr[2] "градусов"
 
-#: src/utils.py:34
+#: src/utils.py:40
 msgid "feels like"
 msgstr "ощущается как"
 
-#: src/utils.py:37
+#: src/utils.py:43
 msgid "Sun sets at"
 msgstr "Закат в"
 
-#: src/utils.py:38
+#: src/utils.py:44
 msgid "and rises at"
 msgstr "и рассвет в"
+
+#: src/utils.py:46
+msgid "Fact about number"
+msgstr "Факт о числе"
 
 #~ msgid "start"
 #~ msgstr "начало"
