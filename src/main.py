@@ -34,11 +34,11 @@ def main() -> None:
 
     # Add conversation handler with the states GENDER, PHOTO, LOCATION and BIO
     conv_handler = ConversationHandler(
-        entry_points=[CommandHandler(_("start"), start)],
+        entry_points=[CommandHandler("start", start)],
         states={
             WEATHER: [MessageHandler((filters.TEXT & ~filters.COMMAND) | filters.LOCATION, weather)],
         },
-        fallbacks=[CommandHandler(_("cancel"), cancel)],
+        fallbacks=[CommandHandler("cancel", cancel)],
     )
 
     application.add_handler(conv_handler)

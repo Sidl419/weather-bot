@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-06-18 23:17+0300\n"
+"POT-Creation-Date: 2023-06-19 23:57+0300\n"
 "PO-Revision-Date: 2023-06-15 20:35+0300\n"
 "Last-Translator: Kirill Berber <berberkirill@mail.ru>\n"
 "Language: ru\n"
@@ -19,43 +19,35 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.12.1\n"
 
-#: src/commands.py:28
+#: src/commands.py:31
 msgid ""
 "Hi! My name is Weather Bot. I will tell you the weather at your city. \n"
 "     Send /cancel to stop talking to me. \n"
 " What is your location? Send me city name or geo location."
 msgstr ""
 "Привет! Я Бот Погоды. Я буду рассказывать тебе о погоде в твоем городе. \n"
-"    Нажми /закончить, чтобы прекратить общение. \n"
+"    Нажми /cancel, чтобы прекратить общение. \n"
 " Где ты находишься? Отправь название города или геолокацию."
 
-#: src/commands.py:52 src/commands.py:58
+#: src/commands.py:55 src/commands.py:61
 msgid "Location of"
 msgstr "Местоположение"
 
-#: src/commands.py:66
+#: src/commands.py:69
 msgid "Sorry, I could not find any weather information for"
-msgstr ""
+msgstr "Извините, не могу найти информацию о погоде"
 
-#: src/commands.py:76
+#: src/commands.py:79
 msgid "User"
 msgstr "Пользователь"
 
-#: src/commands.py:76
+#: src/commands.py:79
 msgid "canceled the conversation"
-msgstr "закончить диалог"
+msgstr "закончил диалог"
 
-#: src/commands.py:78
+#: src/commands.py:81
 msgid "Bye! I hope we can talk again some day."
 msgstr "Пока! Я надеюсь мы сможем пообщаться в другой день"
-
-#: src/main.py:37
-msgid "start"
-msgstr "начало"
-
-#: src/main.py:41
-msgid "cancel"
-msgstr "закончить"
 
 #: src/utils.py:29
 msgid "The weather in"
@@ -87,4 +79,10 @@ msgstr "Закат в"
 #: src/utils.py:38
 msgid "and rises at"
 msgstr "и рассвет в"
+
+#~ msgid "start"
+#~ msgstr "начало"
+
+#~ msgid "cancel"
+#~ msgstr "закончить"
 
