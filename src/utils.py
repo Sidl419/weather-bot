@@ -23,8 +23,9 @@ def get_weather_status(observation: observation.Observation) -> Dict:
 
 
 def get_fact(degree):
+    """Get fact about number."""
     response = requests.get(f"http://numbersapi.com/{degree}/trivia")
-    return response.text
+    return response
 
 
 def format_wether_message(weather_attrs: Dict, location: Optional[str] = None) -> str:
@@ -43,6 +44,8 @@ def format_wether_message(weather_attrs: Dict, location: Optional[str] = None) -
         '\n' + _("Sun sets at") + " " + weather_attrs['sunset'] + " " +\
         _("and rises at") + " " + weather_attrs['sunrise']
     message += '\n'
+    message += '\n'
     message += _('Fact about number') + " " + str(int((weather_attrs['temp']))) + '\n'
-    message += get_fact(int((weather_attrs['temp'])))
+    message += '\n'
+    message += get_fact(int((weather_attrs['temp']))).text
     return message

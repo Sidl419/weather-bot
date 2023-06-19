@@ -1,11 +1,12 @@
 import os
 import datetime
 import sys
+from utils import format_wether_message, get_weather_status, get_fact
+
 
 testdir = os.path.dirname(__file__)
 srcdir = '../src'
 sys.path.insert(0, os.path.abspath(os.path.join(testdir, srcdir)))
-from utils import format_wether_message, get_weather_status
 
 
 def make_weather_attrs():
@@ -35,8 +36,10 @@ def test_format_non_none_location():
 
 class A:
     weather = {}
+
     def __init__(self, weath):
         self.weather = weath
+
 
 class W:
     def __init__(self, temp, detailed_status, sunrise, sunset):
@@ -72,3 +75,7 @@ def test_dict_labels():
     assert 'status' in res
     assert 'sunrise' in res
     assert 'sunset' in res
+
+
+def test_integration_fact_number():
+    assert get_fact(1).status_code == 200

@@ -8,3 +8,4 @@ _build
 build
 dist
 src/weather_bot.egg-info
+*.idea
