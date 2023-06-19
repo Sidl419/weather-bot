@@ -10,7 +10,9 @@ import logging
 import os
 import pyowm
 from pyowm.owm import OWM
-from utils import get_weather_status, format_wether_message, _
+from utils import get_weather_status, format_wether_message, build_menu, _
+import telebot
+from telebot import types
 
 # Enable logging
 logging.basicConfig(
@@ -20,10 +22,12 @@ logger = logging.getLogger(__name__)
 try:
     owm = OWM(os.environ['OWM_API_KEY'])
     weather_mgr = owm.weather_manager()
+    bot = telebot.TeleBot(os.environ['TELEGRAM_BOT_TOKEN'])
 except KeyError as e:
     logging.info(f"You have no environment variable {e}")
 
 WEATHER = 0
+WEATHER_CHOICE = 1
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
@@ -70,6 +74,22 @@ async def weather(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
 
     await update.message.reply_text(message, parse_mode=telegram.constants.ParseMode.HTML)
 
+    return WEATHER
+
+async def city_choice(update,context):
+    list_of_cities = ['Moscow','London','Tokyo', 'Paris', 'Rome']
+    button_list = []
+    for each in list_of_cities:
+        button_list.append(types.InlineKeyboardButton(each, callback_data = each))
+    reply_markup=types.InlineKeyboardMarkup(build_menu(button_list,n_cols=1))
+    bot.send_message(chat_id=update.message.chat_id, text='Choose one city from the following',reply_markup=reply_markup)
+    
+    return WEATHER_CHOICE
+
+
+async def button(update, context):   
+    await update.callback_query.message.reply_text("You choose " + update.callback_query.data)
+    
     return WEATHER
 
 

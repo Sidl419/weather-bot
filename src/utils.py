@@ -49,3 +49,14 @@ def format_wether_message(weather_attrs: Dict, location: Optional[str] = None) -
     message += '\n'
     message += get_fact(int((weather_attrs['temp']))).text
     return message
+
+def build_menu(buttons,n_cols,header_buttons=None,footer_buttons=None):
+    """Get menu with buttons for message interface."""
+    menu = [buttons[i:i + n_cols] for i in range(0, len(buttons), n_cols)]
+    
+    if header_buttons:
+        menu.insert(0, header_buttons)
+    if footer_buttons:
+        menu.append(footer_buttons)
+        
+    return menu

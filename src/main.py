@@ -19,11 +19,12 @@ from telegram.ext import (
     CommandHandler,
     ConversationHandler,
     MessageHandler,
+    CallbackQueryHandler,
     filters,
 )
 
-from commands import weather, cancel, start
-from commands import WEATHER
+from commands import start, cancel, weather, city_choice, button 
+from commands import WEATHER, WEATHER_CHOICE
 
 
 def main() -> None:
@@ -36,8 +37,12 @@ def main() -> None:
         entry_points=[CommandHandler("start", start)],
         states={
             WEATHER: [MessageHandler((filters.TEXT & ~filters.COMMAND) | filters.LOCATION, weather)],
+            WEATHER_CHOICE: [CallbackQueryHandler(button)],
         },
-        fallbacks=[CommandHandler("cancel", cancel)],
+        fallbacks=[
+            CommandHandler("cancel", cancel), 
+            CommandHandler("get5", city_choice)
+        ],
     )
 
     application.add_handler(conv_handler)
