@@ -24,7 +24,6 @@ from telegram.ext import (
 
 from commands import weather, cancel, start
 from commands import WEATHER
-from utils import _
 
 
 def main() -> None:
