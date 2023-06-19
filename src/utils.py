@@ -60,3 +60,16 @@ def build_menu(buttons,n_cols,header_buttons=None,footer_buttons=None):
         menu.append(footer_buttons)
         
     return menu
+
+
+def get_weather_msg_wrapper(location: str, weather_mgr) -> int:
+    """Get current weather in string-format information for the specified location."""
+    try:
+        observation = weather_mgr.weather_at_place(location)
+        weather_attrs = get_weather_status(observation)
+        message = format_wether_message(weather_attrs, location)
+
+    except pyowm.commons.exceptions.NotFoundError:
+        message = f"Sorry, I couldn't find any weather information for <b>{location}</b>"
+
+    return message

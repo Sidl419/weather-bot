@@ -10,7 +10,7 @@ import logging
 import os
 import pyowm
 from pyowm.owm import OWM
-from utils import get_weather_status, format_wether_message, build_menu, _
+from utils import get_weather_status, format_wether_message, build_menu, get_weather_msg_wrapper, _
 import telebot
 from telebot import types
 
@@ -88,7 +88,8 @@ async def city_choice(update,context):
 
 
 async def button(update, context):   
-    await update.callback_query.message.reply_text("You choose " + update.callback_query.data)
+    await update.callback_query.message.reply_text("You choose " + update.callback_query.data + ". Getting weather data...")
+    await update.callback_query.message.reply_text(get_weather_msg_wrapper(update.callback_query.data, weather_mgr), parse_mode=telegram.constants.ParseMode.HTML)
     
     return WEATHER
 
