@@ -10,7 +10,7 @@ import logging
 import os
 import pyowm
 from pyowm.owm import OWM
-from utils import get_weather_status, format_wether_message, build_menu, get_weather_msg_wrapper, _
+from utils import get_weather_status, format_wether_message, build_menu, get_weather_msg_wrapper, get_weather_emodzi, _
 import telebot
 from telebot import types
 
@@ -71,7 +71,11 @@ async def weather(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
 
         except pyowm.commons.exceptions.NotFoundError:
             message = _('Sorry, I could not find any weather information for') + f" <b>{location}</b>"
-
+    
+    
+    weather_emodzi_code = get_weather_emodzi(message.lower())
+    await update.message.reply_text(weather_emodzi_code, parse_mode=telegram.constants.ParseMode.HTML)
+    
     await update.message.reply_text(message, parse_mode=telegram.constants.ParseMode.HTML)
 
     return WEATHER
@@ -87,7 +91,8 @@ async def city_choice(update,context):
     return WEATHER_CHOICE
 
 
-async def button(update, context):   
+async def button(update, context):
+    await update.callback_query.message.edit_text("\U0001f914")
     await update.callback_query.message.reply_text("You choose " + update.callback_query.data + ". Getting weather data...")
     await update.callback_query.message.reply_text(get_weather_msg_wrapper(update.callback_query.data, weather_mgr), parse_mode=telegram.constants.ParseMode.HTML)
     
@@ -101,5 +106,6 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     await update.message.reply_text(
         _("Bye! I hope we can talk again some day."), reply_markup=ReplyKeyboardRemove()
     )
+    await update.message.reply_text("\U0001f609", parse_mode=telegram.constants.ParseMode.HTML)
 
     return ConversationHandler.END

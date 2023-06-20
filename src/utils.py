@@ -73,3 +73,16 @@ def get_weather_msg_wrapper(location: str, weather_mgr) -> int:
         message = f"Sorry, I couldn't find any weather information for <b>{location}</b>"
 
     return message
+
+def get_weather_emodzi(msg_lw: str) -> str:
+    """Get emodzi for the weather."""
+    if msg_lw.find('clouds') != -1:
+        return "\U0001f325"
+    elif msg_lw.find('sun') != -1:
+        return "\U0001f304"
+    elif msg_lw.find('rain') != -1:
+        return "\U0001f327"
+    elif msg_lw.find('snow') != -1:
+        return "\U0001f328"
+    else:
+        return "\U0001f914"

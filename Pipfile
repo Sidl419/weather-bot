@@ -8,6 +8,7 @@ pyowm = "*"
 python-telegram-bot = "*"
 python-dotenv = "*"
 requests = "*"
+emoji = "*"
 
 [dev-packages]
 flake8 = "*"
