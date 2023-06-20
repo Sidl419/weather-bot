@@ -47,12 +47,11 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Техническая документация</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#readme">README</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#weather-bot">weather-bot</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">Перед коммитом</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">Запуск бота</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">Постановка решаемой задачи</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">Описание предполагаемых инструментов решения</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">Макет интерфейса</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id6">Автоматическая документация</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Запуск бота</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Постановка решаемой задачи</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Описание предполагаемых инструментов решения</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Макет интерфейса</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Автоматическая документация</a></li>
 </ul>
 </li>
 </ul>
@@ -111,33 +110,25 @@
 <section id="weather-bot">
 <h2>weather-bot<a class="headerlink" href="#weather-bot" title="Permalink to this heading"></a></h2>
 <section id="id1">
-<h3>Перед коммитом<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pipenv<span class="w"> </span>shell
-pydocstyle
-flake8
-</pre></div>
-</div>
-</section>
-<section id="id2">
-<h3>Запуск бота<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
+<h3>Запуск бота<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pipenv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>src/main.py
 </pre></div>
 </div>
 </section>
-<section id="id3">
-<h3>Постановка решаемой задачи<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
+<section id="id2">
+<h3>Постановка решаемой задачи<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
 <p>Разработать Telegram бота, который позволяет пользователям получать информацию о погоде для любого города или
 местоположения.
 Бот получает текущие данные о погоде для указанного места, используя, например, <code class="docutils literal notranslate"><span class="pre">OpenWeatherMap</span></code>, а в ответ
 отправляет сообщение с текущими погодными условиями, включая температуру, влажность, скорость ветра и описание погоды.</p>
 </section>
-<section id="id4">
-<h3>Описание предполагаемых инструментов решения<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
+<section id="id3">
+<h3>Описание предполагаемых инструментов решения<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
 <p>Основными инструментами являются Python библиотека <code class="docutils literal notranslate"><span class="pre">python-telegram-bot</span></code> для создания Telegram бота, а также
 Python обёртка над <code class="docutils literal notranslate"><span class="pre">OpenWeatherMap</span></code> API, <code class="docutils literal notranslate"><span class="pre">PyOWM</span></code>.</p>
 </section>
-<section id="id5">
-<h3>Макет интерфейса<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h3>
+<section id="id4">
+<h3>Макет интерфейса<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
 <p>Бот имеет текстовый интерфейс и взаимодействует с пользователем через Telegram.
 Пользователь отправляет запрос на получение информации о погоде в виде сообщения боту,
 который обрабатывает его и отправляет ответное сообщение с информацией о погоде.</p>
@@ -147,20 +138,21 @@ Python обёртка над <code class="docutils literal notranslate"><span cl
 <p><img alt="image" src="https://raw.githubusercontent.com/Sidl419/weather-bot/master/.github/images/forecast.jpg" /></p>
 <p>Помимо основной информации о погоде бот выдаёт эмодзи-визуализацию с дополнительным интересным фактом о полученных данных:</p>
 <p><img alt="image" src="https://raw.githubusercontent.com/Sidl419/weather-bot/master/.github/images/message.jpg" /></p>
-<p>Также с введенной системой перевода бот может выдавать ответы на запросы как на английском, так и на русском языках.</p>
+<p>Также с введенной системой перевода бот может выдавать ответы на запросы как на английском, так и на русском языках.
+Кроме того, поддерживается логирование на локальном языке системы.</p>
 <p><img alt="image" src="https://raw.githubusercontent.com/Sidl419/weather-bot/master/.github/images/ru_lang.jpg" /></p>
-<p>Примеры команд для бота:</p>
+<p>Команды для бота:</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">/start</span></code>: начало работы с ботом;</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">/help</span></code>: отображение списка доступных команд и их описание;</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">/weather</span> <span class="pre">&lt;город/метка&gt;</span></code>: текущая погода для указанного города или метки;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;город/метка&gt;</span></code>: текущая погода для указанного города или метки;</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">/get5</span></code>: прогноз погоды в виде кнопочного интерфейса с дополнительной визуализацией;</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">/getw</span></code>: прогноз погоды на три дня вперёд, отправляемой в виде фотографии;</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">/cancel</span></code>: завершить взаимодействие;</p></li>
 </ol>
 </section>
-<section id="id6">
-<h3>Автоматическая документация<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h3>
+<section id="id5">
+<h3>Автоматическая документация<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h3>
 <p>Автоматическая документация проекта доступна по <a class="reference external" href="https://sidl419.github.io/weather-bot">ссылке</a>.</p>
 </section>
 </section>
