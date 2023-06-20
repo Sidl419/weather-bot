@@ -9,6 +9,7 @@ python-telegram-bot = "*"
 python-dotenv = "*"
 requests = "*"
 emoji = "*"
+telebot = "*"
 
 [dev-packages]
 flake8 = "*"
@@ -21,7 +22,6 @@ tomli = "*"
 pybabel = "*"
 build = "*"
 pytest = "*"
-telebot = "*"
 mypy = "*"
 
 [requires]
