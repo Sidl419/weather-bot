@@ -78,7 +78,7 @@ def get_weather_msg_wrapper(location: str, weather_mgr) -> int:
         message = format_wether_message(weather_attrs, location)
 
     except pyowm.commons.exceptions.NotFoundError:
-        message = f"Sorry, I couldn't find any weather information for <b>{location}</b>"
+        message = _('Sorry, I could not find any weather information for') + f" <b>{location}</b>"
 
     return message
 
