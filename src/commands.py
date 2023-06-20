@@ -107,9 +107,18 @@ async def city_choice_wttr(update: Update, context: ContextTypes.DEFAULT_TYPE) -
 
 async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     """Process the buttom push."""
-    await update.callback_query.message.edit_text("\U0001f914")
-    await update.callback_query.message.reply_text("You choose " + update.callback_query.data + ". Getting weather data...")
-    await update.callback_query.message.reply_text(get_weather_msg_wrapper(update.callback_query.data, weather_mgr), parse_mode=telegram.constants.ParseMode.HTML)
+    if update.callback_query is not None:
+        location = update.callback_query.data
+        await update.callback_query.message.edit_text("\U0001f914")
+        await update.callback_query.message.reply_text("You choose " + location + ". Getting weather data...")
+        await update.callback_query.message.reply_text(get_weather_msg_wrapper(location, weather_mgr), parse_mode=telegram.constants.ParseMode.HTML)
+    elif update.message is not None:
+        location = update.message.text
+
+        await context.bot.deleteMessage (message_id = update.message.message_id,
+                           chat_id = update.message.chat_id)
+        await update.message.reply_text("You choose " + location + ". Getting weather data...")
+        await update.message.reply_text(get_weather_msg_wrapper(location, weather_mgr), parse_mode=telegram.constants.ParseMode.HTML)
 
     return WEATHER
 

@@ -37,7 +37,7 @@ def main() -> None:
         entry_points=[CommandHandler("start", start)],
         states={
             WEATHER: [MessageHandler((filters.TEXT & ~filters.COMMAND) | filters.LOCATION, weather)],
-            WEATHER_CHOICE: [CallbackQueryHandler(button)],
+            WEATHER_CHOICE: [CallbackQueryHandler(button), MessageHandler((filters.TEXT & ~filters.COMMAND) | filters.LOCATION, button)],
             WEATHER_CHOICE_WTTR: [CallbackQueryHandler(button_wttr)],
         },
         fallbacks=[
