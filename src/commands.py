@@ -25,7 +25,7 @@ try:
     weather_mgr = owm.weather_manager()
     bot = telebot.TeleBot(os.environ['TELEGRAM_BOT_TOKEN'])
 except KeyError as e:
-    logging.info(f"You have no environment variable {e}")
+    logging.info(_("You have no environment variable") + f"{e}")
 
 WEATHER = 0
 WEATHER_CHOICE = 1
@@ -83,24 +83,26 @@ async def weather(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
 
 async def city_choice(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     """Choose city from available list of buttons."""
-    list_of_cities = ['Moscow', 'London', 'Tokyo', 'Paris', 'Rome']
+    list_of_cities = [_('Moscow'), _('London'), _('Tokyo'), _('Paris'), _('Rome')]
     button_list = []
     for each in list_of_cities:
         button_list.append(types.InlineKeyboardButton(each, callback_data=each))
     reply_markup = types.InlineKeyboardMarkup(build_menu(button_list, n_cols=1))
-    bot.send_message(chat_id=update.message.chat_id, text='Choose one city from the following or write yours', reply_markup=reply_markup)
+    bot.send_message(chat_id=update.message.chat_id,
+                     text=_('Choose one city from the following or write yours'), reply_markup=reply_markup)
 
     return WEATHER_CHOICE
 
 
 async def city_choice_wttr(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     """Choose city from available list of buttons for forecast."""
-    list_of_cities = ['Moscow', 'London', 'Tokyo', 'Paris', 'Rome']
+    list_of_cities = [_('Moscow'), _('London'), _('Tokyo'), _('Paris'), _('Rome')]
     button_list = []
     for each in list_of_cities:
-        button_list.append(types.InlineKeyboardButton(each, callback_data = each))
-    reply_markup=types.InlineKeyboardMarkup(build_menu(button_list,n_cols=1))
-    bot.send_message(chat_id=update.message.chat_id, text='Choose one city from the following',reply_markup=reply_markup)
+        button_list.append(types.InlineKeyboardButton(each, callback_data=each))
+    reply_markup = types.InlineKeyboardMarkup(build_menu(button_list, n_cols=1))
+    bot.send_message(chat_id=update.message.chat_id,
+                     text=_('Choose one city from the following'), reply_markup=reply_markup)
 
     return WEATHER_CHOICE_WTTR
 
@@ -118,7 +120,8 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
         msg = update.message
         new_state = WEATHER_CHOICE
 
-    await msg.reply_text("You choose <b>" + location + "</b>. Getting weather data...", parse_mode=telegram.constants.ParseMode.HTML)
+    await msg.reply_text(_("You choose") + " <b>" + location + "</b>. " + _("Getting weather data..."),
+                         parse_mode=telegram.constants.ParseMode.HTML)
     await msg.reply_text(get_weather_msg_wrapper(location, weather_mgr), parse_mode=telegram.constants.ParseMode.HTML)
 
     return new_state
@@ -137,7 +140,8 @@ async def button_wttr(update, context):
         msg = update.message
         new_state = WEATHER_CHOICE_WTTR
 
-    await msg.reply_text("You choose <b>" + location + "</b>. Getting weather data...", parse_mode=telegram.constants.ParseMode.HTML)
+    await msg.reply_text(_("You choose") + " <b>" + location + "</b>. " + _("Getting weather data..."),
+                         parse_mode=telegram.constants.ParseMode.HTML)
     url = 'https://wttr.in/{}.png'.format(location)
 
     try:
@@ -145,20 +149,19 @@ async def button_wttr(update, context):
         await msg.reply_photo(res.content)
     except:
         message = _('Sorry, I could not find any weather information for') + f" <b>{location}</b>"
-        await msg.reply_text(msg, parse_mode=telegram.constants.ParseMode.HTML)
+        await msg.reply_text(message, parse_mode=telegram.constants.ParseMode.HTML)
 
     return new_state
 
 
 async def helper(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     """List all available commands."""
-    await update.message.reply_text("Welcome to weather-bot! You can use this commands:\n\
+    await update.message.reply_text(_("Welcome to weather-bot! You can use this commands:\n\
         -/start - for starting the conversation\n\
         -/get5 - to get weather from one of cities\n\
         -/getw - to get weather from one of cities for 3 days\n\
         -/help - for this help message\n\
-        -/cancel - for ending conversation"
-                                    )
+        -/cancel - for ending conversation"))
 
     return WEATHER
 
