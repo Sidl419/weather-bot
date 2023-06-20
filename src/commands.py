@@ -10,7 +10,9 @@ import logging
 import os
 import pyowm
 from pyowm.owm import OWM
-from utils import get_weather_status, format_wether_message, _
+from utils import get_weather_status, format_wether_message, build_menu, get_weather_msg_wrapper, get_weather_emodzi, _
+import telebot
+from telebot import types
 
 # Enable logging
 logging.basicConfig(
@@ -20,10 +22,12 @@ logger = logging.getLogger(__name__)
 try:
     owm = OWM(os.environ['OWM_API_KEY'])
     weather_mgr = owm.weather_manager()
+    bot = telebot.TeleBot(os.environ['TELEGRAM_BOT_TOKEN'])
 except KeyError as e:
     logging.info(f"You have no environment variable {e}")
 
 WEATHER = 0
+WEATHER_CHOICE = 1
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
@@ -67,11 +71,43 @@ async def weather(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
 
         except pyowm.commons.exceptions.NotFoundError:
             message = _('Sorry, I could not find any weather information for') + f" <b>{location}</b>"
-
+    
+    
+    weather_emodzi_code = get_weather_emodzi(message.lower())
+    await update.message.reply_text(weather_emodzi_code, parse_mode=telegram.constants.ParseMode.HTML)
+    
     await update.message.reply_text(message, parse_mode=telegram.constants.ParseMode.HTML)
 
     return WEATHER
 
+async def city_choice(update,context):
+    list_of_cities = ['Moscow','London','Tokyo', 'Paris', 'Rome']
+    button_list = []
+    for each in list_of_cities:
+        button_list.append(types.InlineKeyboardButton(each, callback_data = each))
+    reply_markup=types.InlineKeyboardMarkup(build_menu(button_list,n_cols=1))
+    bot.send_message(chat_id=update.message.chat_id, text='Choose one city from the following',reply_markup=reply_markup)
+    
+    return WEATHER_CHOICE
+
+
+async def button(update, context):
+    await update.callback_query.message.edit_text("\U0001f914")
+    await update.callback_query.message.reply_text("You choose " + update.callback_query.data + ". Getting weather data...")
+    await update.callback_query.message.reply_text(get_weather_msg_wrapper(update.callback_query.data, weather_mgr), parse_mode=telegram.constants.ParseMode.HTML)
+    
+    return WEATHER
+
+
+async def helper(update, context):
+    await update.message.reply_text("Welcome to weather-bot! You can use this commands:\n\
+    -/start - for starting the conversation\n\
+    -/get5 - to get weather from one of cities\n\
+    -/help - for this help message\n\
+    -/cancel - for ending conversation"
+    )
+    
+    return WEATHER
 
 async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     """Cancel and end the conversation."""
@@ -80,5 +116,6 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     await update.message.reply_text(
         _("Bye! I hope we can talk again some day."), reply_markup=ReplyKeyboardRemove()
     )
+    await update.message.reply_text("\U0001f609", parse_mode=telegram.constants.ParseMode.HTML)
 
     return ConversationHandler.END

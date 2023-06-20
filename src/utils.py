@@ -49,3 +49,40 @@ def format_wether_message(weather_attrs: Dict, location: Optional[str] = None) -
     message += '\n'
     message += get_fact(int((weather_attrs['temp']))).text
     return message
+
+def build_menu(buttons,n_cols,header_buttons=None,footer_buttons=None):
+    """Get menu with buttons for message interface."""
+    menu = [buttons[i:i + n_cols] for i in range(0, len(buttons), n_cols)]
+    
+    if header_buttons:
+        menu.insert(0, header_buttons)
+    if footer_buttons:
+        menu.append(footer_buttons)
+        
+    return menu
+
+
+def get_weather_msg_wrapper(location: str, weather_mgr) -> int:
+    """Get current weather in string-format information for the specified location."""
+    try:
+        observation = weather_mgr.weather_at_place(location)
+        weather_attrs = get_weather_status(observation)
+        message = format_wether_message(weather_attrs, location)
+
+    except pyowm.commons.exceptions.NotFoundError:
+        message = f"Sorry, I couldn't find any weather information for <b>{location}</b>"
+
+    return message
+
+def get_weather_emodzi(msg_lw: str) -> str:
+    """Get emodzi for the weather."""
+    if msg_lw.find('clouds') != -1:
+        return "\U0001f325"
+    elif msg_lw.find('sun') != -1:
+        return "\U0001f304"
+    elif msg_lw.find('rain') != -1:
+        return "\U0001f327"
+    elif msg_lw.find('snow') != -1:
+        return "\U0001f328"
+    else:
+        return "\U0001f914"

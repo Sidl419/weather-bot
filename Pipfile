@@ -8,6 +8,7 @@ pyowm = "*"
 python-telegram-bot = "*"
 python-dotenv = "*"
 requests = "*"
+emoji = "*"
 
 [dev-packages]
 flake8 = "*"
@@ -20,6 +21,7 @@ tomli = "*"
 pybabel = "*"
 build = "*"
 pytest = "*"
+telebot = "*"
 
 [requires]
 python_version = "3.10"
