@@ -88,7 +88,7 @@ async def city_choice(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int
     for each in list_of_cities:
         button_list.append(types.InlineKeyboardButton(each, callback_data=each))
     reply_markup = types.InlineKeyboardMarkup(build_menu(button_list, n_cols=1))
-    bot.send_message(chat_id=update.message.chat_id, text='Choose one city from the following', reply_markup=reply_markup)
+    bot.send_message(chat_id=update.message.chat_id, text='Choose one city from the following or write yours', reply_markup=reply_markup)
 
     return WEATHER_CHOICE
 
@@ -109,23 +109,25 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     """Process the buttom push."""
     if update.callback_query is not None:
         location = update.callback_query.data
-        await update.callback_query.message.edit_text("\U0001f914")
-        await update.callback_query.message.reply_text("You choose " + location + ". Getting weather data...")
-        await update.callback_query.message.reply_text(get_weather_msg_wrapper(location, weather_mgr), parse_mode=telegram.constants.ParseMode.HTML)
+        msg = update.callback_query.message
+        await msg.edit_text("\U0001f914")
+        new_state = WEATHER
+
     elif update.message is not None:
         location = update.message.text
+        msg = update.message
+        new_state = WEATHER_CHOICE
 
-        await context.bot.deleteMessage (message_id = update.message.message_id,
-                           chat_id = update.message.chat_id)
-        await update.message.reply_text("You choose " + location + ". Getting weather data...")
-        await update.message.reply_text(get_weather_msg_wrapper(location, weather_mgr), parse_mode=telegram.constants.ParseMode.HTML)
+    await msg.reply_text("You choose <b>" + location + "</b>. Getting weather data...", parse_mode=telegram.constants.ParseMode.HTML)
+    await msg.reply_text(get_weather_msg_wrapper(location, weather_mgr), parse_mode=telegram.constants.ParseMode.HTML)
 
-    return WEATHER
+    return new_state
+
 
 async def button_wttr(update, context):
     """Process the buttom push for forecast."""
     await update.callback_query.message.edit_text("\U0001f914")
-    await update.callback_query.message.reply_text("You choose " + update.callback_query.data + ". Getting weather data...")
+    await update.callback_query.message.reply_text("You choose <b>" + update.callback_query.data + "</b>. Getting weather data...", parse_mode=telegram.constants.ParseMode.HTML)
 
     location = update.callback_query.data
     url = 'https://wttr.in/{}.png'.format(location)
