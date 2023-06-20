@@ -14,6 +14,7 @@ from pyowm.owm import OWM
 from utils import get_weather_status, format_wether_message, build_menu, get_weather_msg_wrapper, get_weather_emodzi, _
 import telebot
 from telebot import types
+from typing import Any
 
 # Enable logging
 logging.basicConfig(
@@ -127,7 +128,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     return new_state
 
 
-async def button_wttr(update, context):
+async def button_wttr(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     """Process the buttom push for forecast."""
     if update.callback_query is not None:
         location = update.callback_query.data
@@ -166,7 +167,7 @@ async def helper(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     return WEATHER
 
 
-async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Any:
     """Cancel and end the conversation."""
     user = update.message.from_user
     logger.info("%s %s %s.", _("User"), user.first_name, _("canceled the conversation"))

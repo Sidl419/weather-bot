@@ -1,6 +1,6 @@
 """Utility functions for weather forecast."""
 
-from typing import Dict, Optional, List
+from typing import Dict, Optional, List, Any
 from pyowm.weatherapi25 import observation
 import pyowm
 import gettext
@@ -24,13 +24,13 @@ def get_weather_status(observation: observation.Observation) -> Dict:
     return res
 
 
-def get_fact(degree: int) -> str:
+def get_fact(degree: int) -> requests.Response:
     """Get fact about number."""
     response = requests.get(f"http://numbersapi.com/{degree}/trivia")
     return response
 
 
-def format_wether_message(weather_attrs: Dict, location: Optional[str] = None) -> str:
+def format_wether_message(weather_attrs: Dict, location: Optional[str] = None) -> Any:
     """Get weather message from info dictionary."""
     if location is None:
         location = 'location'
@@ -70,7 +70,7 @@ def build_menu(
     return menu
 
 
-def get_weather_msg_wrapper(location: str, weather_mgr) -> int:
+def get_weather_msg_wrapper(location: str, weather_mgr) -> Any:
     """Get current weather in string-format information for the specified location."""
     try:
         observation = weather_mgr.weather_at_place(location)
