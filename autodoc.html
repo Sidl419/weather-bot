@@ -58,14 +58,20 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#module-commands">Модуль commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#commands.button"><code class="docutils literal notranslate"><span class="pre">button()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#commands.cancel"><code class="docutils literal notranslate"><span class="pre">cancel()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#commands.city_choice"><code class="docutils literal notranslate"><span class="pre">city_choice()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#commands.helper"><code class="docutils literal notranslate"><span class="pre">helper()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#commands.start"><code class="docutils literal notranslate"><span class="pre">start()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#commands.weather"><code class="docutils literal notranslate"><span class="pre">weather()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#module-utils">Модуль utils</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#utils.build_menu"><code class="docutils literal notranslate"><span class="pre">build_menu()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#utils.format_wether_message"><code class="docutils literal notranslate"><span class="pre">format_wether_message()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#utils.get_fact"><code class="docutils literal notranslate"><span class="pre">get_fact()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#utils.get_weather_emodzi"><code class="docutils literal notranslate"><span class="pre">get_weather_emodzi()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#utils.get_weather_msg_wrapper"><code class="docutils literal notranslate"><span class="pre">get_weather_msg_wrapper()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#utils.get_weather_status"><code class="docutils literal notranslate"><span class="pre">get_weather_status()</span></code></a></li>
 </ul>
 </li>
@@ -155,10 +161,25 @@ Python обёртка над <code class="docutils literal notranslate"><span cl
 <span id="commands"></span><h1>Модуль commands<a class="headerlink" href="#module-commands" title="Permalink to this heading"></a></h1>
 <p>Code for weather bot available commands.</p>
 <dl class="py function">
+<dt class="sig sig-object py" id="commands.button">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">commands.</span></span><span class="sig-name descname"><span class="pre">button</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#commands.button" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="commands.cancel">
 <em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">commands.</span></span><span class="sig-name descname"><span class="pre">cancel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Update</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CallbackContext</span><span class="p"><span class="pre">[</span></span><span class="pre">ExtBot</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#commands.cancel" title="Ссылка на это определение"></a></dt>
 <dd><p>Cancel and end the conversation.</p>
 </dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="commands.city_choice">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">commands.</span></span><span class="sig-name descname"><span class="pre">city_choice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#commands.city_choice" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="commands.helper">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">commands.</span></span><span class="sig-name descname"><span class="pre">helper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">update</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#commands.helper" title="Ссылка на это определение"></a></dt>
+<dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="commands.start">
@@ -190,6 +211,12 @@ Python обёртка над <code class="docutils literal notranslate"><span cl
 <span id="utils"></span><h1>Модуль utils<a class="headerlink" href="#module-utils" title="Permalink to this heading"></a></h1>
 <p>Utility functions for weather forecast.</p>
 <dl class="py function">
+<dt class="sig sig-object py" id="utils.build_menu">
+<span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">build_menu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">buttons</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_cols</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header_buttons</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">footer_buttons</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.build_menu" title="Ссылка на это определение"></a></dt>
+<dd><p>Get menu with buttons for message interface.</p>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="utils.format_wether_message">
 <span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">format_wether_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">weather_attrs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#utils.format_wether_message" title="Ссылка на это определение"></a></dt>
 <dd><p>Get weather message from info dictionary.</p>
@@ -199,6 +226,18 @@ Python обёртка над <code class="docutils literal notranslate"><span cl
 <dt class="sig sig-object py" id="utils.get_fact">
 <span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">get_fact</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">degree</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.get_fact" title="Ссылка на это определение"></a></dt>
 <dd><p>Get fact about number.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.get_weather_emodzi">
+<span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">get_weather_emodzi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg_lw</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#utils.get_weather_emodzi" title="Ссылка на это определение"></a></dt>
+<dd><p>Get emodzi for the weather.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.get_weather_msg_wrapper">
+<span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">get_weather_msg_wrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weather_mgr</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#utils.get_weather_msg_wrapper" title="Ссылка на это определение"></a></dt>
+<dd><p>Get current weather in string-format information for the specified location.</p>
 </dd></dl>
 
 <dl class="py function">
