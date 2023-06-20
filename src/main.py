@@ -38,7 +38,7 @@ def main() -> None:
         states={
             WEATHER: [MessageHandler((filters.TEXT & ~filters.COMMAND) | filters.LOCATION, weather)],
             WEATHER_CHOICE: [CallbackQueryHandler(button), MessageHandler((filters.TEXT & ~filters.COMMAND) | filters.LOCATION, button)],
-            WEATHER_CHOICE_WTTR: [CallbackQueryHandler(button_wttr)],
+            WEATHER_CHOICE_WTTR: [CallbackQueryHandler(button_wttr), MessageHandler((filters.TEXT & ~filters.COMMAND) | filters.LOCATION, button_wttr)],
         },
         fallbacks=[
             CommandHandler("cancel", cancel),

@@ -126,16 +126,28 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
 
 async def button_wttr(update, context):
     """Process the buttom push for forecast."""
-    await update.callback_query.message.edit_text("\U0001f914")
-    await update.callback_query.message.reply_text("You choose <b>" + update.callback_query.data + "</b>. Getting weather data...", parse_mode=telegram.constants.ParseMode.HTML)
+    if update.callback_query is not None:
+        location = update.callback_query.data
+        msg = update.callback_query.message
+        await msg.edit_text("\U0001f914")
+        new_state = WEATHER
 
-    location = update.callback_query.data
+    elif update.message is not None:
+        location = update.message.text
+        msg = update.message
+        new_state = WEATHER_CHOICE_WTTR
+
+    await msg.reply_text("You choose <b>" + location + "</b>. Getting weather data...", parse_mode=telegram.constants.ParseMode.HTML)
     url = 'https://wttr.in/{}.png'.format(location)
-    res = requests.get(url)
 
-    await update.callback_query.message.reply_photo(res.content)
+    try:
+        res = requests.get(url)
+        await msg.reply_photo(res.content)
+    except:
+        message = _('Sorry, I could not find any weather information for') + f" <b>{location}</b>"
+        await msg.reply_text(msg, parse_mode=telegram.constants.ParseMode.HTML)
 
-    return WEATHER
+    return new_state
 
 
 async def helper(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
