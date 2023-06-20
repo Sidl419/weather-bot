@@ -40,7 +40,7 @@ def main() -> None:
             WEATHER_CHOICE: [CallbackQueryHandler(button)],
         },
         fallbacks=[
-            CommandHandler("cancel", cancel), 
+            CommandHandler("cancel", cancel),
             CommandHandler("get5", city_choice),
             CommandHandler("help", helper),
         ],

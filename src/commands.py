@@ -71,43 +71,46 @@ async def weather(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
 
         except pyowm.commons.exceptions.NotFoundError:
             message = _('Sorry, I could not find any weather information for') + f" <b>{location}</b>"
-    
-    
+
     weather_emodzi_code = get_weather_emodzi(message.lower())
     await update.message.reply_text(weather_emodzi_code, parse_mode=telegram.constants.ParseMode.HTML)
-    
     await update.message.reply_text(message, parse_mode=telegram.constants.ParseMode.HTML)
 
     return WEATHER
 
-async def city_choice(update,context):
-    list_of_cities = ['Moscow','London','Tokyo', 'Paris', 'Rome']
+
+async def city_choice(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    """Choose city from available list of buttons."""
+    list_of_cities = ['Moscow', 'London', 'Tokyo', 'Paris', 'Rome']
     button_list = []
     for each in list_of_cities:
-        button_list.append(types.InlineKeyboardButton(each, callback_data = each))
-    reply_markup=types.InlineKeyboardMarkup(build_menu(button_list,n_cols=1))
-    bot.send_message(chat_id=update.message.chat_id, text='Choose one city from the following',reply_markup=reply_markup)
-    
+        button_list.append(types.InlineKeyboardButton(each, callback_data=each))
+    reply_markup = types.InlineKeyboardMarkup(build_menu(button_list, n_cols=1))
+    bot.send_message(chat_id=update.message.chat_id, text='Choose one city from the following', reply_markup=reply_markup)
+
     return WEATHER_CHOICE
 
 
-async def button(update, context):
+async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    """Process the buttom push."""
     await update.callback_query.message.edit_text("\U0001f914")
     await update.callback_query.message.reply_text("You choose " + update.callback_query.data + ". Getting weather data...")
     await update.callback_query.message.reply_text(get_weather_msg_wrapper(update.callback_query.data, weather_mgr), parse_mode=telegram.constants.ParseMode.HTML)
-    
+
     return WEATHER
 
 
-async def helper(update, context):
+async def helper(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    """List all available commands."""
     await update.message.reply_text("Welcome to weather-bot! You can use this commands:\n\
-    -/start - for starting the conversation\n\
-    -/get5 - to get weather from one of cities\n\
-    -/help - for this help message\n\
-    -/cancel - for ending conversation"
-    )
-    
+                                    -/start - for starting the conversation\n\
+                                    -/get5 - to get weather from one of cities\n\
+                                    -/help - for this help message\n\
+                                    -/cancel - for ending conversation"
+                                    )
+
     return WEATHER
+
 
 async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     """Cancel and end the conversation."""
