@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-06-20 00:30+0300\n"
+"POT-Creation-Date: 2023-06-20 13:51+0300\n"
 "PO-Revision-Date: 2023-06-15 20:35+0300\n"
 "Last-Translator: Kirill Berber <berberkirill@mail.ru>\n"
 "Language: ru\n"
@@ -19,7 +19,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.12.1\n"
 
-#: src/commands.py:31
+#: src/commands.py:28
+msgid "You have no environment variable"
+msgstr ""
+
+#: src/commands.py:37
 msgid ""
 "Hi! My name is Weather Bot. I will tell you the weather at your city. \n"
 "     Send /cancel to stop talking to me. \n"
@@ -29,58 +33,111 @@ msgstr ""
 "    Нажми /cancel, чтобы прекратить общение. \n"
 " Где ты находишься? Отправь название города или геолокацию."
 
-#: src/commands.py:55 src/commands.py:61
+#: src/commands.py:61 src/commands.py:67
 msgid "Location of"
 msgstr "Местоположение"
 
-#: src/commands.py:69
+#: src/commands.py:75 src/commands.py:151 src/utils.py:81
 msgid "Sorry, I could not find any weather information for"
 msgstr "Извините, не могу найти информацию о погоде"
 
-#: src/commands.py:79
+#: src/commands.py:86 src/commands.py:99
+msgid "Moscow"
+msgstr "Москва"
+
+#: src/commands.py:86 src/commands.py:99
+msgid "London"
+msgstr "Лондон"
+
+#: src/commands.py:86 src/commands.py:99
+msgid "Tokyo"
+msgstr "Токио"
+
+#: src/commands.py:86 src/commands.py:99
+msgid "Paris"
+msgstr "Париж"
+
+#: src/commands.py:86 src/commands.py:99
+msgid "Rome"
+msgstr "Рим"
+
+#: src/commands.py:92
+msgid "Choose one city from the following or write yours"
+msgstr "Выберите один город из предложенных ниже или напишите свой"
+
+#: src/commands.py:105
+msgid "Choose one city from the following"
+msgstr "Выберите один город"
+
+#: src/commands.py:123 src/commands.py:143
+msgid "You choose"
+msgstr "Вы выбрали"
+
+#: src/commands.py:123 src/commands.py:143
+msgid "Getting weather data..."
+msgstr "Получаем данные о погоде"
+
+#: src/commands.py:159
+msgid ""
+"Welcome to weather-bot! You can use this commands:\n"
+"        -/start - for starting the conversation\n"
+"        -/get5 - to get weather from one of cities\n"
+"        -/getw - to get weather from one of cities for 3 days\n"
+"        -/help - for this help message\n"
+"        -/cancel - for ending conversation"
+msgstr ""
+"Добро пожаловать в бот погоды! Вы можете использовать команды:\n"
+"        -/start - для начала общения\n"
+"        -/get5 - получить погоду для одного города\n"
+"        -/getw - получить погоду для одного города на 3 дня\n"
+"        -/help - для помощи по боту\n"
+"        -/cancel - для завершения"
+
+
+#: src/commands.py:172
 msgid "User"
 msgstr "Пользователь"
 
-#: src/commands.py:79
+#: src/commands.py:172
 msgid "canceled the conversation"
 msgstr "закончил диалог"
 
-#: src/commands.py:81
+#: src/commands.py:174
 msgid "Bye! I hope we can talk again some day."
 msgstr "Пока! Я надеюсь мы сможем пообщаться в другой день"
 
-#: src/utils.py:35
+#: src/utils.py:38
 msgid "The weather in"
 msgstr "Погода в"
 
-#: src/utils.py:35
+#: src/utils.py:38
 msgid "is"
 msgstr "-"
 
-#: src/utils.py:37
+#: src/utils.py:40
 msgid "The temperature is "
 msgstr "Температура -"
 
-#: src/utils.py:39 src/utils.py:42
+#: src/utils.py:42 src/utils.py:45
 msgid "degree"
 msgid_plural "degrees"
 msgstr[0] "градус"
 msgstr[1] "градуса"
 msgstr[2] "градусов"
 
-#: src/utils.py:40
+#: src/utils.py:43
 msgid "feels like"
 msgstr "ощущается как"
 
-#: src/utils.py:43
+#: src/utils.py:46
 msgid "Sun sets at"
 msgstr "Закат в"
 
-#: src/utils.py:44
+#: src/utils.py:47
 msgid "and rises at"
 msgstr "и рассвет в"
 
-#: src/utils.py:46
+#: src/utils.py:50
 msgid "Fact about number"
 msgstr "Факт о числе"
 
