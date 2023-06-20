@@ -122,7 +122,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
         new_state = WEATHER_CHOICE
 
     await msg.reply_text(_("You choose") + " <b>" + location + "</b>. " + _("Getting weather data..."),
-                         parse_mode=telegram.constants.ParseMode.HTML)
+                        parse_mode=telegram.constants.ParseMode.HTML)
     await msg.reply_text(get_weather_msg_wrapper(location, weather_mgr), parse_mode=telegram.constants.ParseMode.HTML)
 
     return new_state
