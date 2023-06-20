@@ -1,9 +1,11 @@
 """Utility functions for weather forecast."""
 
-from typing import Dict, Optional
+from typing import Dict, Optional, List
 from pyowm.weatherapi25 import observation
+import pyowm
 import gettext
 import requests
+from telebot import types
 translation = gettext.translation("weth", 'po', fallback=True)
 _, ngettext = translation.gettext, translation.ngettext
 
@@ -22,7 +24,7 @@ def get_weather_status(observation: observation.Observation) -> Dict:
     return res
 
 
-def get_fact(degree):
+def get_fact(degree: int) -> str:
     """Get fact about number."""
     response = requests.get(f"http://numbersapi.com/{degree}/trivia")
     return response
@@ -50,15 +52,21 @@ def format_wether_message(weather_attrs: Dict, location: Optional[str] = None) -
     message += get_fact(int((weather_attrs['temp']))).text
     return message
 
-def build_menu(buttons,n_cols,header_buttons=None,footer_buttons=None):
+
+def build_menu(
+                buttons: List[types.InlineKeyboardButton],
+                n_cols: int,
+                header_buttons: Optional[types.InlineKeyboardButton] = None,
+                footer_buttons: Optional[types.InlineKeyboardButton] = None
+                ) -> List[List[types.InlineKeyboardButton]]:
     """Get menu with buttons for message interface."""
     menu = [buttons[i:i + n_cols] for i in range(0, len(buttons), n_cols)]
-    
+
     if header_buttons:
         menu.insert(0, header_buttons)
     if footer_buttons:
         menu.append(footer_buttons)
-        
+
     return menu
 
 
@@ -73,6 +81,7 @@ def get_weather_msg_wrapper(location: str, weather_mgr) -> int:
         message = f"Sorry, I couldn't find any weather information for <b>{location}</b>"
 
     return message
+
 
 def get_weather_emodzi(msg_lw: str) -> str:
     """Get emodzi for the weather."""
