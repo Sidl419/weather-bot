@@ -148,7 +148,7 @@ async def button_wttr(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int
     try:
         res = requests.get(url)
         await msg.reply_photo(res.content)
-    except:
+    except requests.exceptions.HTTPError:
         message = _('Sorry, I could not find any weather information for') + f" <b>{location}</b>"
         await msg.reply_text(message, parse_mode=telegram.constants.ParseMode.HTML)
 
