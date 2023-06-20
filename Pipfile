@@ -10,6 +10,7 @@ python-dotenv = "*"
 requests = "*"
 emoji = "*"
 telebot = "*"
+types-requests = "*"
 
 [dev-packages]
 flake8 = "*"
