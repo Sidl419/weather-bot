@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "3fcd4f2382791f97bca5d0d8d4ba82ea15533e013924b83778eee41bfadcabdc"
+            "sha256": "22fc7a73f8e7270e444dcbb00f4e1a8dbd80f9baa98403259fc16481eca467e6"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -187,6 +187,12 @@
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
             "version": "==1.7.1"
         },
+        "pytelegrambotapi": {
+            "hashes": [
+                "sha256:11a482c8add3b8235aa1de4984f1e10df2fac38decac8676d0e5e070e7c3880e"
+            ],
+            "version": "==4.12.0"
+        },
         "python-dotenv": {
             "hashes": [
                 "sha256:a8df96034aae6d2d50a4ebe8216326c61c3eb64836776504fcca410e5937a3ba",
@@ -218,6 +224,29 @@
             ],
             "markers": "python_version >= '3.7'",
             "version": "==1.3.0"
+        },
+        "telebot": {
+            "hashes": [
+                "sha256:50327c240243480d40ade4ea5bea4f464bf57d4ff000ea669fcd705396074863",
+                "sha256:848a5885b57247b65edd0e92647b4372ebd8d41611dca3f344788c11deac2571"
+            ],
+            "index": "pypi",
+            "version": "==0.0.5"
+        },
+        "types-requests": {
+            "hashes": [
+                "sha256:3de667cffa123ce698591de0ad7db034a5317457a596eb0b4944e5a9d9e8d1ac",
+                "sha256:afb06ef8f25ba83d59a1d424bd7a5a939082f94b94e90ab5e6116bd2559deaa3"
+            ],
+            "index": "pypi",
+            "version": "==2.31.0.1"
+        },
+        "types-urllib3": {
+            "hashes": [
+                "sha256:3300538c9dc11dad32eae4827ac313f5d986b8b21494801f1bf97a1ac6c03ae5",
+                "sha256:5dbd1d2bef14efee43f5318b5d36d805a489f6600252bb53626d4bfafd95e27c"
+            ],
+            "version": "==1.26.25.13"
         },
         "urllib3": {
             "hashes": [
@@ -622,12 +651,6 @@
             "markers": "python_version >= '3.7'",
             "version": "==1.0.0"
         },
-        "pytelegrambotapi": {
-            "hashes": [
-                "sha256:11a482c8add3b8235aa1de4984f1e10df2fac38decac8676d0e5e070e7c3880e"
-            ],
-            "version": "==4.12.0"
-        },
         "pytest": {
             "hashes": [
                 "sha256:cdcbd012c9312258922f8cd3f1b62a6580fdced17db6014896053d47cddf9295",
@@ -768,14 +791,6 @@
             ],
             "markers": "python_version >= '3.5'",
             "version": "==1.1.5"
-        },
-        "telebot": {
-            "hashes": [
-                "sha256:50327c240243480d40ade4ea5bea4f464bf57d4ff000ea669fcd705396074863",
-                "sha256:848a5885b57247b65edd0e92647b4372ebd8d41611dca3f344788c11deac2571"
-            ],
-            "index": "pypi",
-            "version": "==0.0.5"
         },
         "tomli": {
             "hashes": [
