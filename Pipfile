@@ -9,8 +9,8 @@ python-telegram-bot = "*"
 python-dotenv = "*"
 requests = "*"
 emoji = "*"
-telebot = "*"
 types-requests = "*"
+pytelegrambotapi = "*"
 
 [dev-packages]
 flake8 = "*"
