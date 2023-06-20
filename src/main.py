@@ -23,8 +23,8 @@ from telegram.ext import (
     filters,
 )
 
-from commands import start, cancel, weather, city_choice, button, helper
-from commands import WEATHER, WEATHER_CHOICE
+from commands import start, cancel, weather, city_choice, button, button_wttr, helper, city_choice_wttr
+from commands import WEATHER, WEATHER_CHOICE, WEATHER_CHOICE_WTTR
 
 
 def main() -> None:
@@ -37,11 +37,13 @@ def main() -> None:
         entry_points=[CommandHandler("start", start)],
         states={
             WEATHER: [MessageHandler((filters.TEXT & ~filters.COMMAND) | filters.LOCATION, weather)],
-            WEATHER_CHOICE: [CallbackQueryHandler(button)],
+            WEATHER_CHOICE: [CallbackQueryHandler(button), MessageHandler((filters.TEXT & ~filters.COMMAND) | filters.LOCATION, button)],
+            WEATHER_CHOICE_WTTR: [CallbackQueryHandler(button_wttr), MessageHandler((filters.TEXT & ~filters.COMMAND) | filters.LOCATION, button_wttr)],
         },
         fallbacks=[
             CommandHandler("cancel", cancel),
             CommandHandler("get5", city_choice),
+            CommandHandler("getw", city_choice_wttr),
             CommandHandler("help", helper),
         ],
     )
