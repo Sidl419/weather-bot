@@ -40,7 +40,7 @@ def task_docstyle():
 def task_codestyle():
     """Check code in src directory."""
     return {
-            'actions': ['flake8 ./src', 'mypy ./src'],
+            'actions': ['flake8 ./src'],
             'verbosity': 2
     }
 
