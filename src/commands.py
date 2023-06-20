@@ -98,9 +98,9 @@ async def city_choice_wttr(update: Update, context: ContextTypes.DEFAULT_TYPE) -
     list_of_cities = ['Moscow', 'London', 'Tokyo', 'Paris', 'Rome']
     button_list = []
     for each in list_of_cities:
-        button_list.append(types.InlineKeyboardButton(each, callback_data = each))
-    reply_markup=types.InlineKeyboardMarkup(build_menu(button_list,n_cols=1))
-    bot.send_message(chat_id=update.message.chat_id, text='Choose one city from the following',reply_markup=reply_markup)
+        button_list.append(types.InlineKeyboardButton(each, callback_data=each))
+    reply_markup = types.InlineKeyboardMarkup(build_menu(button_list, n_cols=1))
+    bot.send_message(chat_id=update.message.chat_id, text='Choose one city from the following', reply_markup=reply_markup)
 
     return WEATHER_CHOICE_WTTR
 
@@ -124,7 +124,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     return new_state
 
 
-async def button_wttr(update, context):
+async def button_wttr(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     """Process the buttom push for forecast."""
     if update.callback_query is not None:
         location = update.callback_query.data
