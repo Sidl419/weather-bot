@@ -23,7 +23,7 @@ from telegram.ext import (
     filters,
 )
 
-from commands import start, cancel, weather, city_choice, button 
+from commands import start, cancel, weather, city_choice, button, helper
 from commands import WEATHER, WEATHER_CHOICE
 
 
@@ -41,7 +41,8 @@ def main() -> None:
         },
         fallbacks=[
             CommandHandler("cancel", cancel), 
-            CommandHandler("get5", city_choice)
+            CommandHandler("get5", city_choice),
+            CommandHandler("help", helper),
         ],
     )
 

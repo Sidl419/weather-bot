@@ -99,6 +99,16 @@ async def button(update, context):
     return WEATHER
 
 
+async def helper(update, context):
+    await update.message.reply_text("Welcome to weather-bot! You can use this commands:\n\
+    -/start - for starting the conversation\n\
+    -/get5 - to get weather from one of cities\n\
+    -/help - for this help message\n\
+    -/cancel - for ending conversation"
+    )
+    
+    return WEATHER
+
 async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     """Cancel and end the conversation."""
     user = update.message.from_user
