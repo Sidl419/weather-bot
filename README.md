@@ -32,6 +32,14 @@ Python обёртка над `OpenWeatherMap` API, `PyOWM`.
 Пользователь отправляет запрос на получение информации о погоде в виде сообщения боту,
 который обрабатывает его и отправляет ответное сообщение с информацией о погоде.
 
+![image](https://raw.githubusercontent.com/Sidl419/weather-bot/master/.github/images/buttons.jpg)
+
+![image](https://raw.githubusercontent.com/Sidl419/weather-bot/master/.github/images/forecast.jpg)
+
+![image](https://raw.githubusercontent.com/Sidl419/weather-bot/master/.github/images/message.jpg)
+
+![image](https://raw.githubusercontent.com/Sidl419/weather-bot/master/.github/images/ru_lang.jpg)
+
 Примеры команд для бота:
 
 1. `/start`: начало работы с ботом;
