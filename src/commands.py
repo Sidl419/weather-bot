@@ -6,6 +6,7 @@ from telegram.ext import (
     ContextTypes,
     ConversationHandler,
 )
+import requests
 import logging
 import os
 import pyowm
@@ -28,6 +29,7 @@ except KeyError as e:
 
 WEATHER = 0
 WEATHER_CHOICE = 1
+WEATHER_CHOICE_WTTR = 2
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
@@ -91,6 +93,18 @@ async def city_choice(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int
     return WEATHER_CHOICE
 
 
+async def city_choice_wttr(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    """Choose city from available list of buttons for forecast."""
+    list_of_cities = ['Moscow', 'London', 'Tokyo', 'Paris', 'Rome']
+    button_list = []
+    for each in list_of_cities:
+        button_list.append(types.InlineKeyboardButton(each, callback_data = each))
+    reply_markup=types.InlineKeyboardMarkup(build_menu(button_list,n_cols=1))
+    bot.send_message(chat_id=update.message.chat_id, text='Choose one city from the following',reply_markup=reply_markup)
+
+    return WEATHER_CHOICE_WTTR
+
+
 async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     """Process the buttom push."""
     await update.callback_query.message.edit_text("\U0001f914")
@@ -99,14 +113,28 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
 
     return WEATHER
 
+async def button_wttr(update, context):
+    """Process the buttom push for forecast."""
+    await update.callback_query.message.edit_text("\U0001f914")
+    await update.callback_query.message.reply_text("You choose " + update.callback_query.data + ". Getting weather data...")
+
+    location = update.callback_query.data
+    url = 'https://wttr.in/{}.png'.format(location)
+    res = requests.get(url)
+
+    await update.callback_query.message.reply_photo(res.content)
+
+    return WEATHER
+
 
 async def helper(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     """List all available commands."""
     await update.message.reply_text("Welcome to weather-bot! You can use this commands:\n\
-                                    -/start - for starting the conversation\n\
-                                    -/get5 - to get weather from one of cities\n\
-                                    -/help - for this help message\n\
-                                    -/cancel - for ending conversation"
+        -/start - for starting the conversation\n\
+        -/get5 - to get weather from one of cities\n\
+        -/getw - to get weather from one of cities for 3 days\n\
+        -/help - for this help message\n\
+        -/cancel - for ending conversation"
                                     )
 
     return WEATHER
