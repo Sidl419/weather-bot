@@ -27,5 +27,7 @@ dependencies = { file = "requirements.txt" }
 repository = "https://github.com/Sidl419/weather-bot"
 
 [build-system]
-requires = ["Sphinx", "setuptools", "build", "doit", "pydocstyle"]
+requires = ["pyowm", "setuptools", "build", "python-telegram-bot", 
+"python-dotenv", "requests", "emoji", "types-requests", "pytelegrambotapi"]
+
 build-backend = "setuptools.build_meta"
